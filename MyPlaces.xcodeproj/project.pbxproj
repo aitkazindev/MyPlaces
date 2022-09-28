@@ -14,6 +14,7 @@
 		B630206128E2E30700C2DD1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B630205F28E2E30700C2DD1D /* LaunchScreen.storyboard */; };
 		B64883F728E3E6BA00322FD5 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64883F628E3E6BA00322FD5 /* MainTableViewController.swift */; };
 		B6F291ED28E4299500070226 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F291EC28E4299500070226 /* CustomTableViewCell.swift */; };
+		B6F291EF28E432AC00070226 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F291EE28E432AC00070226 /* Place.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		B630206228E2E30700C2DD1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B64883F628E3E6BA00322FD5 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		B6F291EC28E4299500070226 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		B6F291EE28E432AC00070226 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				B630205428E2E30600C2DD1D /* AppDelegate.swift */,
 				B630205628E2E30600C2DD1D /* SceneDelegate.swift */,
 				B6F291EC28E4299500070226 /* CustomTableViewCell.swift */,
+				B6F291F028E432F700070226 /* Model */,
 				B64883F628E3E6BA00322FD5 /* MainTableViewController.swift */,
 				B630205A28E2E30600C2DD1D /* Main.storyboard */,
 				B630205D28E2E30700C2DD1D /* Assets.xcassets */,
@@ -68,6 +71,14 @@
 				B630206228E2E30700C2DD1D /* Info.plist */,
 			);
 			path = MyPlaces;
+			sourceTree = "<group>";
+		};
+		B6F291F028E432F700070226 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B6F291EE28E432AC00070226 /* Place.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +156,7 @@
 				B64883F728E3E6BA00322FD5 /* MainTableViewController.swift in Sources */,
 				B6F291ED28E4299500070226 /* CustomTableViewCell.swift in Sources */,
 				B630205728E2E30600C2DD1D /* SceneDelegate.swift in Sources */,
+				B6F291EF28E432AC00070226 /* Place.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
