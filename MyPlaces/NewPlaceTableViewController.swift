@@ -61,6 +61,7 @@ class NewPlaceTableViewController: UITableViewController, UINavigationController
         }
     }
     
+   
     func saveNewPlace(){
         
         
