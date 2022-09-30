@@ -9,7 +9,9 @@ import UIKit
 
 class NewPlaceTableViewController: UITableViewController, UINavigationControllerDelegate {
     
+    var currentPlace: Place?
     var imageHasChanged: Bool = false
+    
     // MARK:  IBOutlets
     
     @IBOutlet weak var placeImage: UIImageView!
@@ -27,6 +29,7 @@ class NewPlaceTableViewController: UITableViewController, UINavigationController
         tableView.tableFooterView = UIView()
         saveButton.isEnabled = false
         nameTextField.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+        setUpEditScreen()
     }
     
     
@@ -62,7 +65,7 @@ class NewPlaceTableViewController: UITableViewController, UINavigationController
     }
     
    
-    func saveNewPlace(){
+    func savePlace(){
         
         
         var image: UIImage?
@@ -74,12 +77,54 @@ class NewPlaceTableViewController: UITableViewController, UINavigationController
         
         let imageData = image?.pngData()
         let newPlace = Place(name: nameTextField.text!, location: locationTextField.text, type: typeTextField.text, imageData: imageData)
-        StorageManager.saveObject(newPlace)
+        
+        if currentPlace != nil {
+            try! realm.write{
+                currentPlace?.name = newPlace.name
+                currentPlace?.location = newPlace.location
+                currentPlace?.type = newPlace.type
+                currentPlace?.imageData = newPlace.imageData
+            }
+        }else{
+            StorageManager.saveObject(newPlace)
+        }
+        
+    }
+
+    private func setUpEditScreen() {
+        if currentPlace != nil {
+            setUpNavigationBar()
+            imageHasChanged = true
+            guard let data = currentPlace?.imageData,
+                  let image = UIImage(data: data) else {return}
+            placeImage.image = image
+            placeImage.contentMode = .scaleToFill
+            nameTextField.text = currentPlace?.name
+            locationTextField.text = currentPlace?.location
+            typeTextField.text = currentPlace?.type
+        }
+    }
+    
+    private func setUpNavigationBar(){
+        if let topItem = navigationController?.navigationBar.topItem{
+            topItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        }
+        navigationItem.leftBarButtonItem = nil
+        title = currentPlace?.name
+        saveButton.isEnabled = true
     }
     @IBAction func cancelAction(_ sender: Any) {
         dismiss(animated: true)
     }
 }
+
+
+
+
+
+
+//***************************************************************
+
 
 // MARK:  Text field delefate
 
