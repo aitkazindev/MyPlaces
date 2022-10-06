@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="8qw-tC-iIM">
-                                <rect key="frame" x="0.0" y="130" width="390" height="714"/>
+                                <rect key="frame" x="-1" y="129" width="390" height="715"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -94,6 +94,9 @@
                                     <segment title="Date"/>
                                     <segment title="Name"/>
                                 </segments>
+                                <connections>
+                                    <action selector="sortSelection:" destination="ijv-z1-Skp" eventType="valueChanged" id="NcY-s5-Jyn"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6tG-A5-20N"/>
@@ -105,7 +108,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My places" largeTitleDisplayMode="never" id="HCp-PM-b9U">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="AZ" id="ctZ-H9-pck"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="AZ" id="ctZ-H9-pck">
+                            <connections>
+                                <action selector="reserseSorting:" destination="ijv-z1-Skp" id="onm-L6-AWU"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="rCd-OR-kfe">
                             <connections>
                                 <segue destination="SjT-Gx-Ov2" kind="presentation" id="pzp-63-Vmj"/>
@@ -113,6 +120,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="reversedSortingButton" destination="ctZ-H9-pck" id="f2h-NS-M3X"/>
+                        <outlet property="segmentedControl" destination="BQi-BR-sNp" id="p3v-br-647"/>
                         <outlet property="tableView" destination="8qw-tC-iIM" id="oRy-Av-GUf"/>
                     </connections>
                 </viewController>
